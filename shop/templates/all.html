@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Список</title>
+</head>
+<body>
+    <h4>Список товаров
+    {% if category %}
+        из категории: {{ category }}<br>
+        <a href="{%  url 'shop:all' %}">См. полный список</a>
+    {% endif %}
+    {% if not category %}
+        всех категорий:
+    {% endif %}
+    </h4>
+        <ul>
+            {% for i in product_list %}
+            <li>Товар: <a href="{% url 'shop:detail' i.name %}">{{ i.name }}</a><br>
+                П-ль: {{ i.producer}}<br>
+                Кат: <a href="{% url 'shop:list_cat' i.cat %}">{{ i.cat }}</a>
+            </li><br>
+            {% endfor %}
+        </ul>
+</body>
+</html>

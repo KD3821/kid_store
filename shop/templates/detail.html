@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали</title>
+</head>
+<body>
+    <h3>Детали товара {{ item.name }}</h3>
+    <ul>
+        <li>Цена: {{ item.price }} руб.</li>
+        <li>Производитель: {{ item.producer }}</li>
+        <li>Категория: {{ item.cat }}</li>
+    </ul>
+    <a href="{% url 'shop:list_cat' item.cat %}">См.все товары из категории: {{ item.cat }}</a><br>
+    <a href="{%  url 'shop:all' %}">См. полный список товаров</a>
+</body>
+</html>
